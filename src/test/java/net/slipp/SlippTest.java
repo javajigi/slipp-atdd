@@ -6,6 +6,7 @@ import static org.junit.Assert.assertThat;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
@@ -24,6 +25,11 @@ public class SlippTest {
 	public void search() throws Exception {
 		driver.get("http://www.slipp.net");
 		assertThat(driver.getTitle(), is("SLiPP"));
+		
+		driver.findElement(By.cssSelector("h1 > a")).click();
+		driver.findElement(By.cssSelector("strong.subject")).click();
+		driver.findElement(By.cssSelector("button.btn.pull-right")).click();
+		driver.findElement(By.id("questionBtn")).click();
 	}
 	
 	@After
